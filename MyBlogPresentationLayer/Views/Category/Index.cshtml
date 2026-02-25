@@ -1,0 +1,41 @@
+@model List<MyBlog.EntityLayer.Concrete.Category>
+
+@{
+    ViewBag.Title = "Kategori Listesi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2>Kategori Listesi</h2>
+    <a href="/Category/CreateCategory" class="btn btn-primary mb-3">Yeni Kategori Ekle</a>
+
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Kategori Adı</th>
+            <th>İşlemler</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryId</td>
+                <td>@item.CategoryName</td>
+                <td>
+                    <a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-warning btn-sm">Güncelle</a>
+
+                    <form asp-action="DeleteCategory" method="post" style="display:inline-block;">
+                        <input type="hidden" name="id" value="@item.CategoryId" />
+                        <button type="submit" class="btn btn-danger btn-sm"
+                                onclick="return confirm('Bu kategoriyi silmek istediğine emin misin?');">
+                            Sil
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

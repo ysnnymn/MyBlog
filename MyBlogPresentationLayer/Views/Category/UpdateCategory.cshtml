@@ -1,0 +1,22 @@
+@model MyBlog.EntityLayer.Concrete.Category
+
+@{
+    ViewBag.Title = "Kategori Güncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2>Kategori Güncelle</h2>
+
+    <form asp-action="UpdateCategory" method="post">
+        <input type="hidden" asp-for="CategoryId" />
+
+        <div class="mb-3">
+            <label class="form-label">Kategori Adı</label>
+            <input asp-for="CategoryName" class="form-control" required />
+        </div>
+
+        <button type="submit" class="btn btn-warning">Güncelle</button>
+        <a href="/Category/Index" class="btn btn-secondary">Geri Dön</a>
+    </form>
+</div>

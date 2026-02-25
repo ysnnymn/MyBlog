@@ -1,0 +1,20 @@
+@model MyBlog.EntityLayer.Concrete.Category
+
+@{
+    ViewBag.Title = "Yeni Kategori";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2>Yeni Kategori Ekle</h2>
+    <form asp-action="CreateCategory" method="post">
+
+        <div class="mb-3">
+            <label class="form-label">Kategori Adı</label>
+            <input type="text" class="form-control" asp-for="CategoryName" required />
+        </div>
+
+        <button type="submit" class="btn btn-success">Kaydet</button>
+        <a href="/Category/Index" class="btn btn-secondary">Geri Dön</a>
+    </form>
+</div>
