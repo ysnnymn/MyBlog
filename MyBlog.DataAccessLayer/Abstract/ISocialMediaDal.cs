@@ -3,7 +3,7 @@ using MyBlog.EntityLayer.Concrete;
 
 namespace MyBlog.DataAccessLayer.Abstract;
 
-public interface IArticleDal:IEntityRepository<Article>
+public interface ISocialMediaDal:IEntityRepository<SocialMedia>
 {
-    List<Article> GetArticlesByWriter(int id);
+    
 }

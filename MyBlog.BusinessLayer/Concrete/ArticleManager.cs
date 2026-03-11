@@ -38,4 +38,10 @@ public class ArticleManager:IArticleService
     {
         _articleDal.Delete(entity);
     }
+
+    public List<Article> TGetArticlesByWriter(int id)
+    {
+       return _articleDal.GetArticlesByWriter(id);
+       
+    }
 }

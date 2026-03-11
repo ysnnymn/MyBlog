@@ -15,8 +15,8 @@
                     <div class="categories__post__item__pic set-bg"
                          data-setbg="@item.ThumbImageUrl">
                         <div class="post__meta">
-                            <h4>@item.CreatedDate.Day</h4>
-                            <span>@item.CreatedDate.Month</span>
+                            <h4>@item.CreatedDate.ToString("dd")</h4>
+                            <span>@item.CreatedDate.ToString("MMM")</span>
                         </div>
                     </div>
                 </div>
