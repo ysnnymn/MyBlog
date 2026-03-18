@@ -44,4 +44,9 @@ public class ArticleManager:IArticleService
        return _articleDal.GetArticlesByWriter(id);
        
     }
+
+    public List<Article> TGetArticlesWithCategoryByWriter(int id)
+    {
+       return _articleDal.GetArticlesWithCategoryByWriter(id);
+    }
 }

@@ -1,4 +1,3 @@
-
 @model List<MyBlog.EntityLayer.Concrete.Article>
 
 @{
@@ -27,32 +26,32 @@
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Başlık</th>
-                                        <th>Kategori</th>
-                                        <th>Tarih</th>
-                                        <th>Sil</th>
-                                        <th>Güncelle</th>
-                                    </tr>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Başlık</th>
+                                    <th>Kategori</th>
+                                    <th>Tarih</th>
+                                    <th>Sil</th>
+                                    <th>Güncelle</th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var item in Model)
-                                    {
-                                        <tr>
-                                            <td>@item.ArticleId</td>
-                                            <td>@item.Title</td>
-                                            <td>@item.ArticleId</td>
-                                            <td>@item.CreatedDate</td>
-                                            <td><a href="/Writer/Blog/DeleteBlog/@item.ArticleId" class="btn btn-danger">Sil</a></td>
-                                            <td><a href="/Writer/Blog/UpdateBlog/@item.ArticleId" class="btn btn-success">Güncelle</a></td>
-                                        </tr>
-                                    }
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.ArticleId</td>
+                                        <td>@item.Title</td>
+                                        <td>@item.Category.CategoryName</td>
+                                        <td>@item.CreatedDate</td>
+                                        <td><a href="/Writer/Blog/DeleteBlog/@item.ArticleId" class="btn btn-danger">Sil</a></td>
+                                        <td><a href="/Writer/Blog/UpdateBlog/@item.ArticleId" class="btn btn-success">Güncelle</a></td>
+                                    </tr>
+                                }
 
 
                                 </tbody>
                             </table>
-                            <a href="#" class="btn btn-info">Yeni Blog Girişi</a>
+                            <a href="/Writer/Blog/CreateBlog" class="btn btn-info">Yeni Blog Girişi</a>
                         </div>
                     </div>
                 </div>

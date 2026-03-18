@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using MyBlog.DataAccessLayer.Abstract;
 using MyBlog.DataAccessLayer.Context;
 using MyBlog.DataAccessLayer.EntityFramework;
@@ -17,5 +18,11 @@ public class EfArticleDal:EfEntityRepositoryBase<Article,BlogContext>,IArticleDa
     {
        var values=_context.Articles.Where(x=>x.AppUserId==id).ToList();
        return values;
+    }
+
+    public List<Article> GetArticlesWithCategoryByWriter(int id)
+    {
+        var values=_context.Articles.Where(x=>x.AppUserId==id).Include(x=>x.Category).ToList();
+        return values;
     }
 }
