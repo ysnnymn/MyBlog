@@ -12,7 +12,8 @@
 
                     <h3 class="text-center mb-4">Kayıt Ol</h3>
 
-                    <form asp-action="Index" method="post">
+                    <!-- 🔥 enctype EKLENDİ -->
+                    <form asp-action="Index" method="post" enctype="multipart/form-data">
 
                         <div class="form-group mb-3">
                             <label>Ad</label>
@@ -38,6 +39,13 @@
                             <label>Şifre</label>
                             <input asp-for="Password" type="password" class="form-control" />
                         </div>
+
+                        <!-- 🔥 PROFİL FOTOĞRAFI -->
+                        <div class="form-group mb-3">
+                            <label>Profil Fotoğrafı</label>
+                            <input asp-for="Image" type="file" class="form-control" />
+                        </div>
+
                         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
 
                         <button type="submit" class="btn btn-primary w-100">Kayıt Ol</button>

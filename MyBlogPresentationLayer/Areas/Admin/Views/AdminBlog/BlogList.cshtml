@@ -1,0 +1,57 @@
+@model List<MyBlog.EntityLayer.Concrete.Article>
+
+@{
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+    int id = 0;
+}
+
+
+<div class="page-header d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
+        <i class="mdi mdi-book-open-page-variant mr-2" style="font-size: 28px; color:#4CAF50;"></i>
+        <div>
+            <h3 class="page-title mb-0">Tüm Bloglar</h3>
+            <small class="text-muted">
+                Bu sayfada tüm yazarların blogları listelenmektedir. Silme işlemi yalnızca admin tarafından yapılabilir.
+            </small>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-light">
+            <tr>
+                <th>#</th>
+                <th>Başlık</th>
+                <th>Kategori</th>
+                <th>Yazar</th>
+                <th>Tarih</th>
+                <th>İşlemler</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                id++;
+                <tr>
+                    <td>@id</td>
+                    <td>@item.Title</td>
+                    <td>@item.Category?.CategoryName</td>
+                    <td>@item.AppUser.Name  @item.AppUser.Surname  </td>
+                    <td>@item.CreatedDate.ToShortDateString()</td>
+                    <td>
+                        <form asp-area="Admin" asp-controller="AdminBlog" asp-action="DeleteBlog" asp-route-id="@item.ArticleId" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                    onclick="return confirm('Bu blogu silmek istediğinize emin misiniz?');">
+                                Sil
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

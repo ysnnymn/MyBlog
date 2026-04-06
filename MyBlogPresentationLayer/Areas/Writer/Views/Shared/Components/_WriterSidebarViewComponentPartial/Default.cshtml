@@ -1,0 +1,83 @@
+@model AppUser
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
+        <a class="sidebar-brand brand-logo" href="/Writer/Dashboard/Index">
+            <img src="~/Breeze-Free-Bootstrap-Admin-Template-1.0.0/template/assets/images/logo.svg" />
+        </a>
+    </div>
+
+    <ul class="nav">
+
+        <!-- PROFİL -->
+        <li class="nav-item nav-profile">
+            <a href="/Writer/Profile/EditProfile" class="nav-link">
+                <div class="nav-profile-image">
+                    <img src="@Model.ImageUrl" alt="profile" />
+                </div>
+
+                <div class="nav-profile-text d-flex flex-column pr-3">
+                    <span class="font-weight-medium mb-2">
+                        @Model?.Name @Model?.Surname
+                    </span>
+                    <span class="font-weight-normal">
+                        @Model?.Email
+                    </span>
+                </div>
+            </a>
+        </li>
+
+        <!-- DASHBOARD -->
+        <li class="nav-item">
+            <a class="nav-link" href="/Writer/Dashboard/Index">
+                <i class="mdi mdi-home menu-icon"></i>
+                <span class="menu-title">Dashboard</span>
+            </a>
+        </li>
+
+        <!-- MAKALELERİM -->
+        <li class="nav-item">
+            <a class="nav-link" href="/Writer/Blog/MyBlogList">
+                <i class="mdi mdi-file-document menu-icon"></i>
+                <span class="menu-title">Makalelerim</span>
+            </a>
+        </li>
+
+        <!-- MAKALE EKLE -->
+        <li class="nav-item">
+            <a class="nav-link" href="/Writer/Blog/CreateBlog">
+                <i class="mdi mdi-plus-circle menu-icon"></i>
+                <span class="menu-title">Yeni Makale</span>
+            </a>
+        </li>
+
+        <!-- YORUMLAR -->
+        <li class="nav-item">
+            <a class="nav-link" href="/Writer/Comment/MyComments">
+                <i class="mdi mdi-comment-processing menu-icon"></i>
+                <span class="menu-title">Yorumlarım</span>
+            </a>
+        </li>
+
+        <!-- PROFİL AYARLARI -->
+        <li class="nav-item">
+            <a class="nav-link" href="/Writer/Profile/EditProfile">
+                <i class="mdi mdi-account-settings menu-icon"></i>
+                <span class="menu-title">Profil Ayarları</span>
+            </a>
+        </li>
+
+        <!-- ÇIKIŞ -->
+        <li class="nav-item sidebar-actions">
+            <div class="nav-link">
+                <ul class="pl-0">
+                    <li>
+                        <a href="/Login/Logout" class="btn btn-danger btn-block">
+                            Çıkış Yap
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+    </ul>
+</nav>

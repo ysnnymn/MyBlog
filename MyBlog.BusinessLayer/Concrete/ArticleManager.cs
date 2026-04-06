@@ -49,4 +49,19 @@ public class ArticleManager:IArticleService
     {
        return _articleDal.GetArticlesWithCategoryByWriter(id);
     }
+
+    public List<Article> TGetArticlesWithCategory()
+    {
+        return _articleDal.GetArticlesWithCategory();
+    }
+
+    public Article TGetArticleWithCategoryByArticleId(int id)
+    {
+        return _articleDal.GetArticleWithCategoryByArticleId(id);
+    }
+
+    public List<Article> TGetAllArticlesWithCategory()
+    {
+        return _articleDal.GetAllArticlesWithCategory();
+    }
 }

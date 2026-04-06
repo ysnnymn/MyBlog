@@ -14,5 +14,6 @@ public class Article:IEntity
     public AppUser AppUser { get; set; }
     public int? CategoryId { get; set; }
     public Category Category { get; set; }
+    public List<Comment> Comments { get; set; }
     
 }

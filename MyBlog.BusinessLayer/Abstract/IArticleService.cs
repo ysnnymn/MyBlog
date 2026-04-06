@@ -6,4 +6,8 @@ public interface IArticleService:IGenericService<Article>
 {
     List<Article> TGetArticlesByWriter(int id);
     List<Article> TGetArticlesWithCategoryByWriter(int id);
+    List<Article> TGetArticlesWithCategory();
+    Article TGetArticleWithCategoryByArticleId(int id);
+    List<Article> TGetAllArticlesWithCategory();
+
 }

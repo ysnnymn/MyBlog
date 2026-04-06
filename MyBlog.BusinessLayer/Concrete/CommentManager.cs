@@ -37,4 +37,9 @@ public class CommentManager:ICommentService
     {
        _commentDal.Delete(entity);
     }
+
+    public List<Comment> TGetCommentByBlog(int id)
+    {
+        return _commentDal.GetCommentByBlog(id);
+    }
 }

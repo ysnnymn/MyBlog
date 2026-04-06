@@ -32,4 +32,33 @@ public class ProfileController : Controller
         
         return View(model);
     }
+
+    [HttpPost]
+    [Route("EditProfile")]
+    public async Task<IActionResult> EditProfile(UserEditViewModel model)
+    {
+        var user=await _userManager.FindByNameAsync(User.Identity.Name);
+        if (model.Image != null)
+        {
+            var resource = Directory.GetCurrentDirectory();
+            var extension = Path.GetExtension(model.Image.FileName);
+            var imageName = Guid.NewGuid() + extension;
+            var savelocation=resource+"/wwwroot/images/" + imageName;
+            var stream = new FileStream(savelocation, FileMode.Create);
+            await model.Image.CopyToAsync(stream);
+            user.ImageUrl=imageName;
+        }
+        user.Surname=model.Surname;
+        user.PhoneNumber=model.PhoneNumber;
+        user.Name=model.Name;
+        user.Email=model.Email;
+        user.City=model.City;
+        user.PasswordHash=_userManager.PasswordHasher.HashPassword(user,model.Password);
+        var result = await _userManager.UpdateAsync(user);
+        if (result.Succeeded)
+        {
+            return RedirectToAction("MyBlogList", "Blog", new { area = "Writer" });
+        }
+        return View();
+    }
 }

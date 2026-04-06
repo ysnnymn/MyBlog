@@ -1,0 +1,28 @@
+@model MyBlog.EntityLayer.Concrete.Category
+
+@{
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-header">
+    <h3 class="page-title">Kategori Düzenle</h3>
+    <small class="text-muted">Mevcut kategoriyi güncelleyebilirsiniz.</small>
+</div>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <form asp-action="UpdateCategory" asp-controller="AdminCategory" method="post">
+            <input type="hidden" asp-for="CategoryId" />
+
+            <div class="form-group">
+                <label asp-for="CategoryName" class="form-label">Kategori Adı</label>
+                <input asp-for="CategoryName" class="form-control" />
+                <span asp-validation-for="CategoryName" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success">Güncelle</button>
+            <a asp-action="CategoryList" class="btn btn-secondary">İptal</a>
+        </form>
+    </div>
+</div>
+

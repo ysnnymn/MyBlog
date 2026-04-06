@@ -5,5 +5,6 @@ namespace MyBlog.DataAccessLayer.Abstract;
 
 public interface ICommentDal:IEntityRepository<Comment>
 {
-    
+    List<Comment> GetCommentByBlog(int id);
+
 }

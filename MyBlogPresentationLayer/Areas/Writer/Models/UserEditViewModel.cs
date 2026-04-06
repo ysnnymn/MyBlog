@@ -2,6 +2,7 @@ namespace MyBlog.PresentationLayer.Areas.Writer.Models
 {
     public class UserEditViewModel
     {
+
         public string Name { get; set; }
         public string Surname { get; set; }
         public string City { get; set; }
